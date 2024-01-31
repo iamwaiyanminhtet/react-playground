@@ -2,15 +2,17 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import UseEffect from './components/UseEffect';
-
+import ClassInput, { FunctionalInput } from './components/ToDoOdin';
 
 function App() {
   
 
   return (
     <>
-    <UseEffect/>
+    {/* <FunctionalComponent/>
+    <ClassComponent name="Class Component"/> */}
+    {/* <FunctionalInput/> */}
+    <ClassInput/>
     </>
   );
 }
