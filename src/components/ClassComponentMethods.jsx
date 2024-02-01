@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import {Component} from "react";
 
-export const ErorrComponent = () => <div>{hello}</div>
+export const ErorrComponent = () => <div>Hello</div>
 
 class ClassComponentMethods extends Component {
     constructor(props) {

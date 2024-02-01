@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`User Event > initial render 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    Click Me
+  </button>
+  <main>
+    Magnificent Monkeys
+  </main>
+</div>
+`;
