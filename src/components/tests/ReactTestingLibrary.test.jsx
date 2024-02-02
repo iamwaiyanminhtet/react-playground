@@ -1,8 +1,8 @@
-import {render, screen} from "@testing-library/react"
+import { render, screen} from "@testing-library/react"
 import userEvent from "@testing-library/user-event";
-import { UserEvent} from "./ReactTestingLibrary"
+import { UserEvent, ListComponent, Mock} from "./ReactTestingLibrary"
 import FirstTest from "./ReactTestingLibrary"
-import { describe, it, expect } from "vitest"
+import { describe, it, expect, test, vi } from "vitest"
 
 describe('test component', () => {
     it('heading', () => {
@@ -27,3 +27,57 @@ describe('User Event', () => {
         expect(screen.getByRole('main').textContent).toMatch(/radical rhinos/i);
     })
 });
+
+describe('the presence of list', () => {
+    test('list contains 3 li', () => {
+        render(<ListComponent/>);
+
+        const ulEle = screen.getByRole('list');
+        const liEle = screen.getAllByRole('listitem');
+
+        expect(ulEle).toBeInTheDocument();
+        expect(ulEle).toHaveClass('list')
+        expect(liEle.length).toBe(3);
+    })
+})
+
+describe('button click', () => {
+    test('render?', () => {
+        render(<Mock onClick={() => {}}/>)
+        const button = screen.getByRole('button', {name : "Button"});
+
+        expect(button).toBeInTheDocument();
+    })
+
+    test('click once', async () => {
+        const onClick = vi.fn();
+        const user = userEvent.setup();
+
+        render(<Mock onClick={onClick}/>)
+        const button = screen.getByRole('button', {name : "Button"});
+        
+        await user.click(button)
+
+        expect(onClick).toHaveBeenCalledOnce()
+    })
+
+    test('click thrice', async () => {
+        const onClick = vi.fn();
+        const user = userEvent.setup();
+
+        render(<Mock onClick={onClick}/>)
+        const button = screen.getByRole('button', {name : "Button"});
+        
+        await user.click(button)
+        await user.click(button)
+        await user.click(button)
+
+        expect(onClick).toBeCalledTimes(3)
+    })
+
+    test('no click', async () => {
+        const onClick = vi.fn();
+        render(<Mock onClick={onClick}/>)
+        expect(onClick).not.toHaveBeenCalledOnce()
+    })
+})

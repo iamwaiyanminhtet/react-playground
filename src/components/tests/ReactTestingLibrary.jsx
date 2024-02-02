@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import  {useState} from 'react'
 
 const FirstTest = () => <h1>First Test</h1>
 
@@ -14,5 +14,25 @@ const UserEvent = () => {
       </>
     );
 }
+
+const ListComponent = () => {
+  return(
+    <>
+    <ul className='list'>
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+    </ul>
+    </>
+  )
+}
+
+const Mock = ({onClick}) => {
+  return (
+    <button onClick={onClick}>Button</button>
+  )
+}
+
+
 export default FirstTest;
-export {UserEvent};
+export {UserEvent, ListComponent, Mock};
