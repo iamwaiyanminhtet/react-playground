@@ -1,11 +1,11 @@
 // import Profile from './Profile';
 import './App.css';
-import UseReducer from './components/UseReducer';
+import UseMemo from './components/UseMemo';
 
 function App() {
   return (
     <div className="App">
-      <UseReducer/>
+      <UseMemo/>
     </div>
   );
 }
