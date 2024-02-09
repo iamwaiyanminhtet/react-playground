@@ -1,10 +1,11 @@
-import Profile from './Profile';
+// import Profile from './Profile';
 import './App.css';
+import UseReducer from './components/UseReducer';
 
 function App() {
   return (
     <div className="App">
-      <Profile delay={1000} />
+      <UseReducer/>
     </div>
   );
 }
