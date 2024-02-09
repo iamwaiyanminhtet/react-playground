@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRef } from "react";
 import { useReducer } from "react"
 
 function reducer(state, action) {
@@ -13,10 +15,23 @@ function reducer(state, action) {
 
 const UseReducer = () => {
     const [state, dispatch] = useReducer(reducer, {count : 0});
+    const prevNum = useRef();
+    const renderTime = useRef(0); 
+    const buttonRef = useRef();
+    useEffect(() => {
+        prevNum.current = state.count
+    }, [state.count]);
+
+    useEffect(() => {
+        renderTime.current++;
+    })
+    console.log(buttonRef.current)
     return (
         <div>
-            <button onClick={() => dispatch({type : "increment"})}>Increment</button>
+            <button ref={buttonRef} onClick={() => dispatch({type : "increment"})}>Increment</button>
             <p>UseReducer count  {state.count}</p>
+            <p>Prev count  {prevNum.current}</p>
+            <p>Render count  {renderTime.current}</p>
             <button onClick={() => dispatch({type : "decrement"})}>Decrement</button>
         </div>
     )
