@@ -1,11 +1,11 @@
 // import Profile from './Profile';
 import './App.css';
-import UseMemo from './components/UseMemo';
+import Counter from './components/SetIntervalWithHooks';
 
 function App() {
   return (
     <div className="App">
-      <UseMemo/>
+      <Counter/>
     </div>
   );
 }
